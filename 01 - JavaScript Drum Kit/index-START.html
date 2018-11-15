@@ -58,6 +58,35 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  let soundMap = new Map();
+  let audios = document.getElementsByTagName('audio');
+  let arr_audios = [...audios];
+  
+  arr_audios.forEach( e => {
+    soundMap.set( e.dataset.key, e );
+  });
+
+  document.addEventListener('keypress', e => {
+    let code = e.keyCode;
+    if (e.keyCode >= 65+32 && e.keyCode <= 90+32) {
+      code -= 32;
+    }
+    // sound.classList.add('playing');
+    let temp = document.querySelector(`.key[data-key="${code}"]`);
+    if (temp) {
+      temp.classList.add('playing')
+    }
+
+    let sound = soundMap.get(String(code));
+    if (sound) {
+      sound.addEventListener('ended', (i) => {
+        document.querySelector(`.key[data-key="${code}"]`).classList.remove('playing')
+      }, false)
+      sound.currentTime = 0;
+      sound.play();
+    }
+  })
+
 
 </script>
 
