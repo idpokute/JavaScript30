@@ -13,7 +13,7 @@ function getVideo() {
 //       The following has been depreceated by major browsers as of Chrome and Firefox.
 //       video.src = window.URL.createObjectURL(localMediaStream);
 //       Please refer to these:
-//       Depreceated  - https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+//       Deprecated  - https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
 //       Newer Syntax - https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
       
       video.srcObject = localMediaStream;
@@ -57,7 +57,7 @@ function takePhoto() {
   link.href = data;
   link.setAttribute('download', 'handsome');
   link.innerHTML = `<img src="${data}" alt="Handsome Man" />`;
-  strip.insertBefore(link, strip.firsChild);
+  strip.insertBefore(link, strip.firstChild);
 }
 
 function redEffect(pixels) {
